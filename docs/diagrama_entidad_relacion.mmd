@@ -1,0 +1,13 @@
+erDiagram
+  PROPIETARIOS ||--o{ MASCOTAS : tiene
+  MASCOTAS ||--o{ CITAS : agenda
+  VETERINARIOS ||--o{ CITAS : atiende
+  SERVICIOS ||--o{ CITAS : incluye
+  MASCOTAS ||--o{ HISTORIAL : registra
+  VETERINARIOS ||--o{ HISTORIAL : escribe
+  PROPIETARIOS { int id PK string nombre string telefono string correo }
+  MASCOTAS { int id PK string nombre string especie string raza int edad int propietario_id FK }
+  VETERINARIOS { int id PK string nombre string especialidad string telefono }
+  SERVICIOS { int id PK string nombre string descripcion float precio }
+  CITAS { int id PK int mascota_id FK int veterinario_id FK int servicio_id FK string fecha string hora string estado string notas }
+  HISTORIAL { int id PK int mascota_id FK string fecha string diagnostico string tratamiento int veterinario_id FK }
